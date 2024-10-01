@@ -83,13 +83,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 <distributionManagement>
 <repository>
 <id>maven-releases</id>
-            <url>https://nexus.home/repository/maven-releases/</url>
-            <url>http://192.168.1.113:8081/repository/maven-releases/</url>
+<url>http://192.168.1.113:8081/repository/maven-releases/</url>
 </repository>
 <snapshotRepository>
 <id>maven-snapshots</id>
-            <url>https://nexus.home/repository/maven-snapshots/</url>
-            <url>http://192.168.1.113:8081/repository/maven-snapshots/</url>
+<url>http://192.168.1.113:8081/repository/maven-snapshots/</url>
 </snapshotRepository>
 </distributionManagement>
 
