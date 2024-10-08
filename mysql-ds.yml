@@ -42,6 +42,13 @@ spec:
           limits:
             memory: "2Gi"
             cpu: "1000m"
+        volumeMounts:
+        - name: mysql-pvc
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-pvc
+        persistentVolumeClaim:
+          claimName: mysql-pvc 
 ---
 # MySQL Service
 apiVersion: v1
