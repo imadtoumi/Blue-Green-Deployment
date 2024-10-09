@@ -3,17 +3,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: {{.Values.db.name }}
 spec:
   selector:
     matchLabels:
-      app: mysql
+      app: {{.Values.db.name }}
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: {{.Values.db.name }}
     spec:
       affinity:
         nodeAffinity:
@@ -25,16 +25,22 @@ spec:
                 values:
                 - k8s-node1
       containers:
-      - image: mysql:8
-        name: mysql
+      - image: {{ .Values.db.image }}
+        name: {{.Values.db.name }}
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "Test@123"
+          valueFrom:
+            secretKeyRef:
+              name: mysql-login
+              key: mysql_root_pass  
         - name: MYSQL_DATABASE
-          value: "bankappdb"
+          valueFrom:
+            secretKeyRef:
+              name: mysql-login
+              key: mysql_db
         ports:
         - containerPort: 3306
-          name: mysql
+          name: {{.Values.db.name }}
         resources:
           requests:
             memory: "1Gi"

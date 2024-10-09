@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-login
+data:
+  mysql_root_pass: {{ .Values.mysql_login.mysql_root_pass}}
+  mysql_db: {{ .Values.mysql_login.mysql_db }}

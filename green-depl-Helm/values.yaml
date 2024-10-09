@@ -1,0 +1,12 @@
+app:
+  name: bankapp-green
+  image: imadtoumi/bl-gr-deployment:latest
+
+db:
+  name: mysql
+  image: mysql:8
+
+mysql_login:
+  mysql_root_pass: VGVzdEAxMjM=
+  mysql_db: YmFua2FwcGRi
+

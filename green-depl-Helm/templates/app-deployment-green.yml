@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bankapp-green
+  name: {{ .Values.app.name }}
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: imadtoumi/bl-gr-deployment:latest # Adjust the image tag for the green version
+        image: {{ .Values.app.image }} # Adjust the image tag for the green version
         ports:
         - containerPort: 8080
         env:
