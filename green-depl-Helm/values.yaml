@@ -1,5 +1,5 @@
 app:
-  name: bankapp-green
+  name: bankapp-green-v2
   image: imadtoumi/bl-gr-deployment:latest
 
 db:
